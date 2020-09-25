@@ -45,15 +45,15 @@ Data exploration and feature engineering
 After reviewing the meta-data we learn that the TotalBsmtSF is a linear combination of BsmtFinSF1, BsmtFinSF2 and BsmtUnfSF so we removed the 3 extra variables. We also notice that MSSubClass contains information from HouseStyle and BldgType so we remove it. Random forests don’t strictly suffer from multicolinearity of variables as linear models do, however leaving the extra variables may harm the variable importance ranking by giving less weight to the collinear variables. Also, the partition of the basement area by quality didn’t help much in explaining the price.
 While exploring the data we find that some of the categorical variables are extremely unbalanced and suffer from low variation. These variables suffer from near zero variance and they might cause the model to over fit. Hence we prune the variables: Utilities, MiscVal, PoolArea, PoolQC, Street, Condition2, RoofMatl, Heating, Alley, LowQualFinSF, BsmtFullBath, BsmtHalfBath, MiscFeature.  Below is a visual example of one of the pruned variables (pool size and quality):
 
-![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/1.png)
+<img align="center" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/1.png" />
 
 Other categorical variables with many levels suffered from low variance for some of the categories. Yet, the problem was not as severe as discussed above. To introduce more balance to those variables, we grouped similar categories together. We also took caution with ordinal variables by grouping them properly. For example, variables with a 1-10 scale measure such as OverAllQual where scaled to a 3 level scale (see graphs below):
 
-![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/2.png)
+<img align="center" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/2.png" />
 
 As we mentioned, the data on house sales spreads over the years 2006-2010, a period which covers the sub-prime crisis. We added a dummy variable indicating that the house was sold during the subprime crisis (December 2007 – June 2009). Although a quick plot depicts the sale prices weren’t different for the period crisis we keep the variable to examine its importance in the random forest. Also notice that the crisis accounts for 30% of the period of the sample while 33% of the sales in the sample were during the crisis:
 
-![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/3.png)
+<img align="center" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/3.png" />
 
 The dataset contained the variable YearRemodAdd which described the year in which the house was remodeled (equals to YearBuilt if house not remodeled). We replaced it with the variable YearsSinceRemod which describes how many years have passed since the house was remodeled. We also wanted to add a variable for the age of the house at sale however, since the data doesn’t range over a long period, such a variable is strongly correlated with YearBuilt. An attempt was made to create a new variable for the age of the house at sale. However, since the period of the sample was very short, the new feature was highly correlated with YearBuilt and so the feature wasn’t added.   
 
@@ -66,11 +66,11 @@ Unlike other regression techniques like linear regression methods, random forest
 #### Growing the Random Forest and performing diagnostics
 The Random Forest was grown using the “RandomForest” package. Tuning the number of randomly sampled features “mTry” was done with the tuneRF function which starts with the initial value recommended by Breiman – 2/3 of the number of the features. The tuning uses OOB error to search to the left and right of the current best value until the improvement is no larger than the specified value. The number of trees was left at the default 500. Generally, more trees reduce the variance of the forest however the addition of trees has diminishing returns. The initial run for the random forest reached an OOB RMSE of 0.0142 (1.42%) and the model was able to explain 87% of the variation in sale price. The learning curve below depicts the diminishing returns of adding trees.
 
-![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/4.png)
+<img align="center" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/4.png" />
 
 Some diagnostic plots are given below for the OOB samples (see also graph 2 in the appendix for test set results). In the first plot we can see that residuals (actual-prediction) seem random however we can see that the model overpriced cheap houses hence it may not account for some attributes that characterize cheap houses. In the third plot we can see that the residuals have a nice symmetrical bell shaped density yet it still suffers from some fat tails.  
 
-![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/5.png)
+<img align="center" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/5.png" />
 
 **Table 1** in the appendix shows the variable importance based on % increase in MSE. We can see that the sizes of the floors and basement are important as well as the size of the lot. The neighborhood is also of great importance. We can also notice that the subprime wasn’t important. Feature pruning was not helpful in increasing the models’ performance hence we believe that the model tends to under fit the data. The importance metric only gives us a feeling of how a feature matters in explaining the sale price. The importance metric doesn’t tell us a thing about the magnitude and direction of the features. As mentioned, the main drawback of the random forest is its limited interpretability. Indeed, random forests do not output a numerical output for feature effects as linear regression models do and we might be interested in understanding the relationships of the features with the price. A simple solution to this is plotting partial plots for the desired variables. The partial plots (as implemented in the RandomForest package) attempts in plotting the marginal effect of the feature by plotting the function: 
 
@@ -82,11 +82,11 @@ Where **x**_i is a vector of the other variables. Essentially, the plot is the a
 
 Where L_[ijk] is the local increment (change in predicted value of observation i at tree j in node k) of feature and H_[ijl] is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
 
-![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/6.png)
+<img align="center" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/6.png" />
 
 The vertical color changes in the second row of plots indicate the corresponding variables may have an interaction with the size of the garage. A possible reason for the interaction with the size of the first floor is that buyers who consider the size of the first floor are also considered by the size of the garage (see plot below). When adding the interactions to the model, the MSE merely improved yet the new interaction variables were found to be at the top 15 important variables. This demonstrates that the interactions may not be that strong.
 
-![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/7.png)
+<img align="center" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/7.png" />
 
 The feature contributions plots that were given above depict the power of the random forest in finding non linear relationships for the data.
 
