@@ -82,11 +82,11 @@ Where **x**_i is a vector of the other variables. Essentially, the plot is the a
 
 Where L_[ijk] is the local increment (change in predicted value of observation i at tree j in node k) of feature and H_[ijl] is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
 
-![plot 6](https://github.com/nirryde/nirryde.github.io/blob/master/Images/AmesKaggle/6.png)
+![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/6.png)
 
 The vertical color changes in the second row of plots indicate the corresponding variables may have an interaction with the size of the garage. A possible reason for the interaction with the size of the first floor is that buyers who consider the size of the first floor are also considered by the size of the garage (see plot below). When adding the interactions to the model, the MSE merely improved yet the new interaction variables were found to be at the top 15 important variables. This demonstrates that the interactions may not be that strong.
 
-![plot 7](https://github.com/nirryde/nirryde.github.io/blob/master/Images/AmesKaggle/7.png)
+![](https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/7.png)
 
 The feature contributions plots that were given above depict the power of the random forest in finding non linear relationships for the data.
 
