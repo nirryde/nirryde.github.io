@@ -71,7 +71,7 @@ Where **x**_i is a vector of the other variables. Essentially, the plot is the a
 
 **INSERT EQUATION**
 
-Where L_{ijk} is the local increment (change in predicted value of observation i at tree j in node k) of feature and H_{ijl} is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
+Where L_[ijk] is the local increment (change in predicted value of observation i at tree j in node k) of feature and H_[ijl] is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
 
 ![plot 6](https://github.com/nirryde/nirryde.github.io/blob/master/Images/AmesKaggle/6.png)
 
