@@ -45,11 +45,11 @@ Data exploration and feature engineering
 After reviewing the meta-data we learn that the TotalBsmtSF is a linear combination of BsmtFinSF1, BsmtFinSF2 and BsmtUnfSF so we removed the 3 extra variables. We also notice that MSSubClass contains information from HouseStyle and BldgType so we remove it. Random forests don’t strictly suffer from multicolinearity of variables as linear models do, however leaving the extra variables may harm the variable importance ranking by giving less weight to the collinear variables. Also, the partition of the basement area by quality didn’t help much in explaining the price.
 While exploring the data we find that some of the categorical variables are extremely unbalanced and suffer from low variation. These variables suffer from near zero variance and they might cause the model to over fit. Hence we prune the variables: Utilities, MiscVal, PoolArea, PoolQC, Street, Condition2, RoofMatl, Heating, Alley, LowQualFinSF, BsmtFullBath, BsmtHalfBath, MiscFeature.  Below is a visual example of one of the pruned variables (pool size and quality):
 
-<img src="https://github.com/nirryde/nirryde.github.io/blob/master/Images/AmesKaggle/1.png"/>
+![](https://github.com/nirryde/nirryde.github.io/blob/master/Images/AmesKaggle/1.png)
 
 Other categorical variables with many levels suffered from low variance for some of the categories. Yet, the problem was not as severe as discussed above. To introduce more balance to those variables, we grouped similar categories together. We also took caution with ordinal variables by grouping them properly. For example, variables with a 1-10 scale measure such as OverAllQual where scaled to a 3 level scale (see graphs below):
 
-![plot 2](https://github.com/nirryde/nirryde.github.io/blob/master/Images/AmesKaggle/2.png)
+![](https://github.com/nirryde/nirryde.github.io/blob/master/Images/AmesKaggle/2.png)
 
 As we mentioned, the data on house sales spreads over the years 2006-2010, a period which covers the sub-prime crisis. We added a dummy variable indicating that the house was sold during the subprime crisis (December 2007 – June 2009). Although a quick plot depicts the sale prices weren’t different for the period crisis we keep the variable to examine its importance in the random forest. Also notice that the crisis accounts for 30% of the period of the sample while 33% of the sales in the sample were during the crisis:
 
