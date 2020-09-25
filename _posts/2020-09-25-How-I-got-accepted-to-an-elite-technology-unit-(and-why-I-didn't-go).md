@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How I got accepted to an elite technology unit (and why I didn't go)"
+title: "How I Got Accepted To An Elite Intel Unit (and why I didn't go)"
 date: 2020-09-25
 ---
 A few years ago, I was a budget analyst at the IDF’s medical corps. In retrospective my job was quite interesting, especially when compared to other budget related positions in the IDF. Yet, back then I was not satisfied of my position and I was looking into trying to move into a more analytic position.\
@@ -10,9 +10,9 @@ A week or two after the interview I got call from the team leader saying that th
 
 A summary of the Kaggle project I presented at the interview is given below.
 
-## **House Pricing in Ames Iowa, using the Random Forest Algorithm**
+## House Pricing in Ames Iowa, using the Random Forest Algorithm
 
-### **The problem at hand and proposed goals**
+### The problem at hand and proposed goals
 The original problem as posted in [Kaggle](https://www.kaggle.com/c/house-prices-advanced-regression-techniques#description) is of predicting the price in which a house will be sold (more about the data in the next section). The problem could interest potential buyers or sellers of a house who wish to have a fair estimate of the price of a house. My personal goal was to address the problem by using an algorithm which I am unfamiliar with. I decided to use the Random Forest algorithm since the idea of using trees for regression intrigued me and because it is rather easy to optimize compared to other similar algorithms such as Gradient Boosting. Some of the advantages of the random forest for regression tasks are: 
 *	It is relatively fast and simple to tune.
 *	It has an estimate of variable importance.	
