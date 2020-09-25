@@ -74,9 +74,7 @@ Some diagnostic plots are given below for the OOB samples (see also graph 2 in t
 
 **Table 1** in the appendix shows the variable importance based on % increase in MSE. We can see that the sizes of the floors and basement are important as well as the size of the lot. The neighborhood is also of great importance. We can also notice that the subprime wasn’t important. Feature pruning was not helpful in increasing the models’ performance hence we believe that the model tends to under fit the data. The importance metric only gives us a feeling of how a feature matters in explaining the sale price. The importance metric doesn’t tell us a thing about the magnitude and direction of the features. As mentioned, the main drawback of the random forest is its limited interpretability. Indeed, random forests do not output a numerical output for feature effects as linear regression models do and we might be interested in understanding the relationships of the features with the price. A simple solution to this is plotting partial plots for the desired variables. The partial plots (as implemented in the RandomForest package) attempts in plotting the marginal effect of the feature by plotting the function: 
 
-\begin{aligned}
 $$ \hat{f}(x)= \frac_{1}{n}\sum_{i=1}^{n}f(x,\textbf{x}_i)$$
-\end{aligned}
 
 Where **x**_i is a vector of the other variables. Essentially, the plot is the average response value over the different values of **x**_i for different values of x. The drawback of this method is that it ignores possible interactions with other features. A possible solution to this problem was given by Soeren Wellings’ forest floor method (see also forestFloor package for R). Welling suggests plotting the OOB feature contribution:
 
