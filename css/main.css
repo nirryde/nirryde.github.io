@@ -52,6 +52,10 @@ p img {
     margin: 0 auto;
 }
 
+.textEq {
+    display: inline;
+}
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
