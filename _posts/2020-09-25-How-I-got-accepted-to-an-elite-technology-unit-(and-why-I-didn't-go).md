@@ -88,7 +88,7 @@ Some diagnostic plots are given below for the OOB samples (see also graph 2 in t
 <img src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/5.png" />
 </p>
 
-**Table 1** in the appendix shows the variable importance based on % increase in MSE. We can see that the sizes of the floors and basement are important as well as the size of the lot. The neighborhood is also of great importance. We can also notice that the subprime wasn’t important. Feature pruning was not helpful in increasing the models’ performance hence we believe that the model tends to under fit the data. The importance metric only gives us a feeling of how a feature matters in explaining the sale price. The importance metric doesn’t tell us a thing about the magnitude and direction of the features. As mentioned, the main drawback of the random forest is its limited interpretability. Indeed, random forests do not output a numerical output for feature effects as linear regression models do and we might be interested in understanding the relationships of the features with the price. A simple solution to this is plotting partial plots for the desired variables. The partial plots (as implemented in the RandomForest package) attempts in plotting the marginal effect of the feature by plotting the function: 
+**Table 1** in the appendix (not included in this post) shows the variable importance based on % increase in MSE. We can see that the sizes of the floors and basement are important as well as the size of the lot. The neighborhood is also of great importance. We can also notice that the subprime wasn’t important. Feature pruning was not helpful in increasing the models’ performance hence we believe that the model tends to under fit the data. The importance metric only gives us a feeling of how a feature matters in explaining the sale price. The importance metric doesn’t tell us a thing about the magnitude and direction of the features. As mentioned, the main drawback of the random forest is its limited interpretability. Indeed, random forests do not output a numerical output for feature effects as linear regression models do and we might be interested in understanding the relationships of the features with the price. A simple solution to this is plotting partial plots for the desired variables. The partial plots (as implemented in the RandomForest package) attempts in plotting the marginal effect of the feature by plotting the function: 
 
 ![](https://latex.codecogs.com/gif.download?%5Cwidehat%7Bf%7D%28x%29%3D%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7Df%28x%2C%5Ctextbf%7Bx%7D_i%29)
 
@@ -96,17 +96,13 @@ Where <img class="textEq" src="https://latex.codecogs.com/gif.download?%5Clarge%
 
 **INSERT EQUATION**
 
-Where L_[ijk] is the local increment (change in predicted value of observation i at tree j in node k) of feature and H_[ijl] is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
+Where <img class="textEq" src="https://latex.codecogs.com/gif.download?%5Clarge%20L_%7Bijk%7D"/> is the local increment (change in predicted value of observation i at tree j in node k) of feature and <img class="textEq" src="https://latex.codecogs.com/gif.download?%5Clarge%20H_%7Bijl%7D"/> is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/6.png" />
-</p>
+<img class="textEq" src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/6.png" />
 
 The vertical color changes in the second row of plots indicate the corresponding variables may have an interaction with the size of the garage. A possible reason for the interaction with the size of the first floor is that buyers who consider the size of the first floor are also considered by the size of the garage (see plot below). When adding the interactions to the model, the MSE merely improved yet the new interaction variables were found to be at the top 15 important variables. This demonstrates that the interactions may not be that strong.
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/7.png" />
-</p>
+<img src="https://latex.codecogs.com/gif.download?%5Clarge%20F_%7Bil%7D%3D%20%5Cfrac%7B%5Csum_%7Bj%5Cin%20J_i%7D%5Csum_%7Bk%5Cin%20H_%7Bijl%7D%7DL_%7Bijk%7D%7D%7B%7CJ_i%7C%7D"/>
 
 The feature contributions plots that were given above depict the power of the random forest in finding non linear relationships for the data.
 
