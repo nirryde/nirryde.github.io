@@ -31,7 +31,8 @@ p, ul, ol {
 }
 
 p img {
-    text-align: 'center';
+    display: block;
+    margin: 0 auto;
 }
 
 footer {
