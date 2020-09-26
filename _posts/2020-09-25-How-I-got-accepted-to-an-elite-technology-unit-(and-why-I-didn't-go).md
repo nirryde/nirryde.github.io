@@ -18,18 +18,22 @@ The problem at hand and proposed goals
 
 The original problem as posted in [Kaggle](https://www.kaggle.com/c/house-prices-advanced-regression-techniques#description) is of predicting the price in which a house will be sold (more about the data in the next section). The problem could interest potential buyers or sellers of a house who wish to have a fair estimate of the price of a house. My personal goal was to address the problem by using an algorithm which I am unfamiliar with. I decided to use the Random Forest algorithm since the idea of using trees for regression intrigued me and because it is rather easy to optimize compared to other similar algorithms such as Gradient Boosting. Some of the advantages of the random forest for regression tasks are: 
 
-- It is relatively fast and simple to tune.
--	It has an estimate of variable importance.	
--	It can be used to impute missing values.
--	It can use “Out Of Bag” (OOB) observations for tuning. 
+<ul>
+  <li> It is relatively fast and simple to tune. </li>
+  <li> It has an estimate of variable importance. </li>
+  <li> It can be used to impute missing values. </li>
+  <li> It can use “Out Of Bag” (OOB) observations for tuning. </li>
+</ul>
 
 The main drawback of the random forest is that it is hard (yet somewhat possible) to interpret and learn about the size and direction of the effects. Another drawback is that it may poorly perform on examples that are far from the training set. Other tree-based alternatives to the random forest would be GBM and AdaBoost. Obviously, linear model such as the L1/L2/Elastic-Net/MLR regression models could have been used to address the problem. The main advantage of the linear models to the tree-ensembeling methods is that they are generally better for drawing conclusions about the effects.
 The outline of the strategy used to address the problem is:
 
-**1.** Loading the data in R and starting with missing data analysis\
-**2.** Performing some basic feature engineering and data exploration\
-**3.** Tune the Random Forest and analyze the results\
-**4.** Repeat stages 2-3 if needed
+<ol>
+  <li> Loading the data in R and starting with missing data analysis </li>
+  <li> Performing some basic feature engineering and data exploration </li>
+  <li> Tune the Random Forest and analyze the results </li>
+  <li> Repeat stages 2-3 if needed </li>
+</ol>
 
 The data and initial data cleaning
 ----------------------------------
