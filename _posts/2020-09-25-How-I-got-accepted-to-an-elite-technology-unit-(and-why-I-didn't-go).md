@@ -26,10 +26,10 @@ The original problem as posted in [Kaggle](https://www.kaggle.com/c/house-prices
 The main drawback of the random forest is that it is hard (yet somewhat possible) to interpret and learn about the size and direction of the effects. Another drawback is that it may poorly perform on examples that are far from the training set. Other tree-based alternatives to the random forest would be GBM and AdaBoost. Obviously, linear model such as the L1/L2/Elastic-Net/MLR regression models could have been used to address the problem. The main advantage of the linear models to the tree-ensembeling methods is that they are generally better for drawing conclusions about the effects.
 The outline of the strategy used to address the problem is:
 
-1.	Loading the data in R and starting with missing data analysis
-2.	Performing some basic feature engineering and data exploration
-3.	Tune the Random Forest and analyze the results
-4.	Repeat stages 2-3 if needed 
+1.Loading the data in R and starting with missing data analysis
+2.Performing some basic feature engineering and data exploration
+3.Tune the Random Forest and analyze the results
+4.Repeat stages 2-3 if needed 
 
 The data and initial data cleaning
 ----------------------------------
