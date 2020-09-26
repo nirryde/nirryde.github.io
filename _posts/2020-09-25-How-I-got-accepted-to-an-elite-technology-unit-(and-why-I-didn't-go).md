@@ -92,7 +92,7 @@ Some diagnostic plots are given below for the OOB samples (see also graph 2 in t
 
 ![](https://latex.codecogs.com/gif.download?%5Cwidehat%7Bf%7D%28x%29%3D%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7Df%28x%2C%5Ctextbf%7Bx%7D_i%29)
 
-Where ![](https://latex.codecogs.com/gif.download?%5Clarge%20%5Ctextbf%7Bx%7D_i) is a vector of the other variables. Essentially, the plot is the average response value over the different values of **x**_i for different values of x. The drawback of this method is that it ignores possible interactions with other features. A possible solution to this problem was given by Soeren Wellings’ forest floor method (see also forestFloor package for R). Welling suggests plotting the OOB feature contribution:
+Where <img class="textEq" src="https://latex.codecogs.com/gif.download?%5Clarge%20%5Ctextbf%7Bx%7D_i"/> is a vector of the other variables. Essentially, the plot is the average response value over the different values of <img class="textEq" src="https://latex.codecogs.com/gif.download?%5Clarge%20%5Ctextbf%7Bx%7D_i"/> for different values of x. The drawback of this method is that it ignores possible interactions with other features. A possible solution to this problem was given by Soeren Wellings’ forest floor method (see also forestFloor package for R). Welling suggests plotting the OOB feature contribution:
 
 **INSERT EQUATION**
 
