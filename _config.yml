@@ -1,4 +1,2 @@
 name: Almost Surely
 markdown: kramdown
-kramdown:
-  math_engine: katex
