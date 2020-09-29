@@ -90,15 +90,17 @@ Some diagnostic plots are given below for the OOB samples (see also graph 2 in t
 
 **Table 1** in the appendix (not included in this post) shows the variable importance based on % increase in MSE. We can see that the sizes of the floors and basement are important as well as the size of the lot. The neighborhood is also of great importance. We can also notice that the subprime wasn’t important. Feature pruning was not helpful in increasing the models’ performance hence we believe that the model tends to under fit the data. The importance metric only gives us a feeling of how a feature matters in explaining the sale price. The importance metric doesn’t tell us a thing about the magnitude and direction of the features. As mentioned, the main drawback of the random forest is its limited interpretability. Indeed, random forests do not output a numerical output for feature effects as linear regression models do and we might be interested in understanding the relationships of the features with the price. A simple solution to this is plotting partial plots for the desired variables. The partial plots (as implemented in the RandomForest package) attempts in plotting the marginal effect of the feature by plotting the function: 
 
-<img src="https://latex.codecogs.com/gif.download?%5Cwidehat%7Bf%7D%28x%29%3D%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7Df%28x%2C%5Ctextbf%7Bx%7D_i%29"/>
+<p align="center">
 $\hat{f}(x)=\frac{1}{n}\sum_{i=1}^{n}f(x,\textbf{x}_i)$
+</p>
 
 Where $text_bf{x}_i$ is a vector of the other variables. Essentially, the plot is the average response value over the different values of $x$ for different values of x. The drawback of this method is that it ignores possible interactions with other features. A possible solution to this problem was given by Soeren Wellings’ forest floor method (see also forestFloor package for R). Welling suggests plotting the OOB feature contribution:
 
-<img src="https://latex.codecogs.com/gif.download?%5Clarge%20F_%7Bil%7D%3D%20%5Cfrac%7B%5Csum_%7Bj%5Cin%20J_i%7D%5Csum_%7Bk%5Cin%20H_%7Bijl%7D%7DL_%7Bijk%7D%7D%7B%7CJ_i%7C%7D"/>
+<p align="center">
 $F_{il}=\frac{\sum_{j\in J_i} \sum_{k\in H_{ijl}}L_{ijk}}{|J_i|}$
+</p>
 
-Where $L_ijk$ is the local increment (change in predicted value of observation i at tree j in node k) of feature and $H_{ijl}$ is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
+Where $L_{ijk}$ is the local increment (change in predicted value of observation i at tree j in node k) of feature and $H_{ijl}$ is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/AmesKaggle/6.png" />
