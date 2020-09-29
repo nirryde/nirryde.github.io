@@ -94,9 +94,7 @@ $$\hat{f}(x)=\frac{1}{n}\sum_{i=1}^{n}f(x,\textbf{x}_i)$$
 
 Where $\text_bf{x}_i$ is a vector of the other variables. Essentially, the plot is the average response value over the different values of $x$ for different values of x. The drawback of this method is that it ignores possible interactions with other features. A possible solution to this problem was given by Soeren Wellings’ forest floor method (see also forestFloor package for R). Welling suggests plotting the OOB feature contribution:
 
-<p align="center">
-$F_{il}=\frac{\sum_{j\in J_i} \sum_{k\in H_{ijl}}L_{ijk}}{|J_i|}$
-</p>
+$$F_{il}=\frac{\sum_{j\in J_i} \sum_{k\in H_{ijl}}L_{ijk}}{|J_i|}$$
 
 Where $L_{ijk}$ is the local increment (change in predicted value of observation i at tree j in node k) of feature and $H_{ijl}$ is the set of local increments where feature the parent node was split by feature l. Next, we try to find some possible interactions by using the feature contribution method. The first idea that came up to mind was an interaction with the year the house was built. “YearBuilt” was not found to interact with any of 12 of the most important variables (see graph 1 in the appendix). After several attempts with other variables a couple of possible interactions were found with the size of the garage:
 
