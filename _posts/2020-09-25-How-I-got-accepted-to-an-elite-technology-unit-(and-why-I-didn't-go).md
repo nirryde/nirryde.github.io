@@ -92,7 +92,7 @@ Some diagnostic plots are given below for the OOB samples (see also graph 2 in t
 
 $$\hat{f}(x)=\frac{1}{n}\sum_{i=1}^{n}f(x,\textbf{x}_i)$$
 
-Where $text_bf{x}_i$ is a vector of the other variables. Essentially, the plot is the average response value over the different values of $x$ for different values of x. The drawback of this method is that it ignores possible interactions with other features. A possible solution to this problem was given by Soeren Wellings’ forest floor method (see also forestFloor package for R). Welling suggests plotting the OOB feature contribution:
+Where $\text_bf{x}_i$ is a vector of the other variables. Essentially, the plot is the average response value over the different values of $x$ for different values of x. The drawback of this method is that it ignores possible interactions with other features. A possible solution to this problem was given by Soeren Wellings’ forest floor method (see also forestFloor package for R). Welling suggests plotting the OOB feature contribution:
 
 <p align="center">
 $F_{il}=\frac{\sum_{j\in J_i} \sum_{k\in H_{ijl}}L_{ijk}}{|J_i|}$
