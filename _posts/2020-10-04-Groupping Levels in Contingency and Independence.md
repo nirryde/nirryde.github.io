@@ -48,34 +48,34 @@ Since the decomposition of $$M_0$$ into $$M_1,M_2$$ satisfies all of the three d
 
 For the algebraic proof, let $$pi_{ij}=n_{ij}/n_{++}$$. Notice we can write $$G_0$$ as: \
 
-$$G_0=2n_{++}\sum_{i=1}^{I}\sum_{j=1}^{J}\pi_{ij}log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)$$
+$$G_0=2n_{++}\sum_{i=1}^{I}\sum_{j=1}^{J}\pi_{ij}log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)$$ \
 
 By the definition of $$M_1$$ we can write: \
 
-$$G_1=2\sum_{i=3}^{I}\sum_{j=1}^{J}n_{ij}log \left( \frac{n_{ij}}{\hat{\mu}_{ij}} \right)+2\sum_{j=1}^{J}\left(n_{1j}+n_{2j}\right)log \left(\frac{ n_{1j}+n_{2j}}{\hat{\mu}_{1j}+\hat{\mu}_{2j}}\right) $$
+$$G_1=2\sum_{i=3}^{I}\sum_{j=1}^{J}n_{ij}log \left( \frac{n_{ij}}{\hat{\mu}_{ij}} \right)+2\sum_{j=1}^{J}\left(n_{1j}+n_{2j}\right)log \left(\frac{ n_{1j}+n_{2j}}{\hat{\mu}_{1j}+\hat{\mu}_{2j}}\right) $$ \
 
-$$=2n_{++}\sum_{i=3}^{I}\sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)+2n_{++}\sum_{j=1}^{J}\left(\pi_{1j}+\pi_{2j}\right) log \left(\frac{\pi_{1j}+\pi_{2j}}{\left( \pi_{1+}\pi_{2+} \right) \pi_{+j}} \right)$$
+$$=2n_{++}\sum_{i=3}^{I}\sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)+2n_{++}\sum_{j=1}^{J}\left(\pi_{1j}+\pi_{2j}\right) log \left(\frac{\pi_{1j}+\pi_{2j}}{\left( \pi_{1+}\pi_{2+} \right) \pi_{+j}} \right)$$ \
 
-Using the expressions above for $$G_0, G_1$$, we can write:
+Using the expressions above for $$G_0, G_1$$, we can write: \
 
-$$\frac{1}{2n_{++}}\left( G_0-G_1 \right)=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right) – log \left( \frac{\pi_{1j}+\pi_{2j}}{\left( \pi_{1+}+\pi_{2+} \right)\pi_{+j}}\right) \right)$$
+$$\frac{1}{2n_{++}}\left( G_0-G_1 \right)=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right) – log \left( \frac{\pi_{1j}+\pi_{2j}}{\left( \pi_{1+}+\pi_{2+} \right)\pi_{+j}}\right) \right)$$ \
 
-$$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{i+}} \right) -log \left(\frac{\pi_{1j}+\pi_{2j}}{\pi_{1+}+\pi_{2+}} \right) \right)$$
+$$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{i+}} \right) -log \left(\frac{\pi_{1j}+\pi_{2j}}{\pi_{1+}+\pi_{2+}} \right) \right)$$ \
 
-$$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) -log \left(\frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)$$
+$$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) -log \left(\frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)$$ \
 
-Recall that the log-sum inequality states that for any sets of non-negative numbers: $$(x_i)_{i=1}^{n},(y_i)_{i=1}^{n}$$ with $$x=\sum_{i=1}^{n}, y=\sum_{i=1}^{n}$$ the following inequality holds:
+Recall that the log-sum inequality states that for any sets of non-negative numbers: $$(x_i)_{i=1}^{n},(y_i)_{i=1}^{n}$$ with $$x=\sum_{i=1}^{n}, y=\sum_{i=1}^{n}$$ the following inequality holds: \
 
-$$\sum_{i=1}^{n}x_i log \left(\frac{x_i}{y_i} \right) \geq x \cdot log \left(\frac{x}{y} \right)$$
+$$\sum_{i=1}^{n}x_i log \left(\frac{x_i}{y_i} \right) \geq x \cdot log \left(\frac{x}{y} \right)$$ \
 
 With equality if and only if $$x_i /y_i$$ are equal for all $$i$$. In our case, this would imply that the first two rows of $$M_0$$ are linearly dependent. 
-Applying the log-sum inequality to the last expression for $$0.5n_{++}^{-1}(G_0-G_1)$$ yields:
+Applying the log-sum inequality to the last expression for $$0.5n_{++}^{-1}(G_0-G_1)$$ yields: \
 
-$$\sum_{j=1}^{J}\pi_{ij}\log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) \geq \pi_{i+}log \left( \frac{\pi_i+}{\pi_{1+}+ \pi_{2+}} \right)$$
+$$\sum_{j=1}^{J}\pi_{ij}\log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) \geq \pi_{i+}log \left( \frac{\pi_i+}{\pi_{1+}+ \pi_{2+}} \right)$$ \
 
-By plugging the RHS in the inequality above in the expression $$0.5n_{++}^{-1}(G_0-G_1)$$ we obtain:
+By plugging the RHS in the inequality above in the expression $$0.5n_{++}^{-1}(G_0-G_1)$$ we obtain: \
 
-$$\frac{1}{2n_++}\left( G_0-G_1 \right) \geq \sum_{i=1}^{2} \left( \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) - \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)=0$$
+$$\frac{1}{2n_++}\left( G_0-G_1 \right) \geq \sum_{i=1}^{2} \left( \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) - \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)=0$$ \
 
 It can now be seen that: $$G_0 \geq G_1$$. Due to the condition of equality in the log-sum inequality, $$G_0=G_1$$ when the first two rows of $$M_0$$ are linearly dependent. 
 
