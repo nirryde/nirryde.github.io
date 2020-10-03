@@ -82,13 +82,16 @@ It can now be seen that: $$G_0 \geq G_1$$. Due to the condition of equality in t
 Final Words
 -----------
 
-My proof for the decomposition theorem in this post was influenced by the notation of information theory. At a first glance, the $$G$$-statistic reminded of the Kullback-Leibler deviance and indeed the $$G$$-statistic is proportional the the KL divergence between the obsereved distribution and the null distribution. \ 
+My proof for the decomposition theorem in this post was influenced by the notation of information theory. At a first glance, the $$G$$-statistic reminded of the Kullback-Leibler deviance and indeed the $$G$$-statistic is proportional the the KL divergence between the obsereved distribution and the null distribution.
+
 As far as I know, the $$\chi^2$$-test is not superior to the $$G$$-test in any theoretical aspect and the decomposition property makes the $$G$$-test more favourable. Perhaps some sort of lock-in effect is in place here as the $$\chi^2$$ test is widely used in many scientific journals. As a result, it would be inconvient for readers of these journals to stumble uppon an unknown statistical procedure, even though this unknown method is essentially the same as what they are familiar with. A possible solution is that the statistical reviewers of journals require changing to a $$G$$-test whenever a paper is submitted with a $$\chi^2$$-test. On the other hand, since both methods yield similar results, it is likely that nobody wants to deal with the hassle of explaining why changing the statistical test is so acute. 
 
 References
 ----------
 Alan Agresti, Categorical Data Analysis, Third Edition
+
 Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Masters Thesis
+
 John H. McDonald, Handbook of Biological Statistics
 
 
