@@ -27,7 +27,7 @@ Under the null hypothesis of independence, both $$\chi^2$$ and $$G$$ statistics 
 A Property of the G-Test: Table Decomposition
 ---------------------------------------------
 
-For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. Another way to view the theorem is that the G-statistic is additive which allows conduction of an experiment compounded from sub-experiments were the sum of G-statistics of all sub-experiments equals to the G-statistic of the grand experiment. \ 
+For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. Another way to view the theorem is that the G-statistic is additive which allows conduction of an experiment compounded from sub-experiments were the sum of G-statistics of all sub-experiments equals to the G-statistic of the grand experiment. It should be noted that this property does not hold for the $$\chi^2$$ statistic. \ 
 Let $$M_0$$ denote a contingency table of dimension $$I \times J$$. Now, let $$M_1$$ be the $$(I-1) \times J$$ contingency table obtained by merging the first two rows of $$M_0$$. In other words, the first row in $$M_1$$ is the sum of the first two rows in $$M_0$$. The remaining of the $$I-2$$ rows in $$M_1$$ are equal to the last $$I-2$$ rows in $$M_0$$. We denote $$G_k$$ as the $$G$$ statistic of $$M_k$$. 
 
 **Theorem:** Using the definitions above: $$G_0 \geq G_1$$. \
@@ -79,12 +79,19 @@ $$\frac{1}{2n_{++}}\left( G_0-G_1 \right) \geq \sum_{i=1}^{2} \left( \pi_{i+} lo
 
 It can now be seen that: $$G_0 \geq G_1$$. Due to the condition of equality in the log-sum inequality, $$G_0=G_1$$ when the first two rows of $$M_0$$ are linearly dependent. 
 
+Final Words
+-----------
+
+My proof for the decomposition theorem in this post was influenced by the notation of information theory. At a first glance, the $$G$$-statistic reminded of the Kullback-Leibler deviance and indeed the $$G$$-statistic is proportional the the KL divergence between the obsereved distribution and the null distribution. \ 
+As far as I know, the $$\chi^2$$-test is not superior to the $$G$$-test in any theoretical aspect and the decomposition property makes the $$G$$-test more favourable. Perhaps some sort of lock-in effect is in place here as the $$\chi^2$$ test is widely used in many scientific journals. As a result, it would be inconvient for readers of these journals to stumble uppon an unknown statistical procedure, even though this unknown method is essentially the same as what they are familiar with. A possible solution is that the statistical reviewers of journals require changing to a $$G$$-test whenever a paper is submitted with a $$\chi^2$$-test. On the other hand, since both methods yield similar results, it is likely that nobody wants to deal with the hassle of explaining why changing the statistical test is so acute. 
 
 References
 ----------
 Alan Agresti, Categorical Data Analysis, Third Edition
 Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Masters Thesis
 John H. McDonald, Handbook of Biological Statistics
+
+
 
 [^1]: I have an opinion on the matter but that is a subject for another post.
 [^2]: See Agresties' book and [“Partition of the Chi-Squared Statistic in a Contingency Table”, Jo Ann Colas](https://ruor.uottawa.ca/bitstream/10393/30352/1/Colas_Jo_Ann_2014_thesis.pdf)
