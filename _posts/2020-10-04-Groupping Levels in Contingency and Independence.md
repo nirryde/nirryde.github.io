@@ -27,8 +27,8 @@ Under the null hypothesis of independence, both $$\chi^2$$ and $$G$$ statistics 
 A Property of the G-Test: Table Decomposition
 ---------------------------------------------
 
-For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. Another way to view the theorem is that the G-test allows addition of 
-Let $$M_0$$ denote a contingency table of dimension $$I \times J$$. Now, let $$M_1$$ be the $$(I-1) \times J$$ contingency table obtained by merging the first two rows of $$M_0$$. In other words, the first row in $$M_1$$ is the sum of the first two rows in $$M_0$$. The remaining of the $$I-2$$ rows in $$M_1$$ are equal to the last $$I-2$$ rows in $$M_0$$. We denote the $$G$$ statistic of $$M_k$$ with $$G_k$$. 
+For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. Another way to view the theorem is that the G-statistic is additive which allows conduction of an experiment compounded from sub-experiments were the sum of G-statistics of all sub-experiments equals to the G-statistic of the grand experiment. \ 
+Let $$M_0$$ denote a contingency table of dimension $$I \times J$$. Now, let $$M_1$$ be the $$(I-1) \times J$$ contingency table obtained by merging the first two rows of $$M_0$$. In other words, the first row in $$M_1$$ is the sum of the first two rows in $$M_0$$. The remaining of the $$I-2$$ rows in $$M_1$$ are equal to the last $$I-2$$ rows in $$M_0$$. We denote $$G_k$$ as the $$G$$ statistic of $$M_k$$. 
 
 **Theorem:** Using the definitions above: $$G_0 \geq G_1$$. \
 **Proof:** We shall prove the theorem in two ways. The first proof uses the properties of decomposition of contingency tables. The second proof is based on the relation of the $$G$$ statistic and information theory.
@@ -46,7 +46,7 @@ The first two marginal row counts in $$M_0$$ appear only in $$M_2$$. The rest of
 Finally, $$M_0$$ has $$(I-1)(J-1)$$ degrees of freedom. $$M_1$$ has $$(I-2)(J-1)$$ degrees of freedom and $$M_2$$ has $$2(J-1)$$ degrees of freedom. It follows that the sum of degrees of freedom of $$M_1,M_2$$ is equal to the degrees of freedom of $$M_0$$. 
 Since the decomposition of $$M_0$$ into $$M_1,M_2$$ satisfies all of the three decomposition rules, it follows that $$G_0=G_1+G_2$$. The result now follows from the fact that $$G_k \geq 0$$ hence $$G_0 \geq G_1$$. 
 
-For the algebraic proof, let $$pi_{ij}=n_{ij}/n_{++}$$. Notice we can write $$G_0$$ as: 
+For the algebraic proof, let $$p_{ij}=n_{ij}/n_{++}$$. Notice we can write $$G_0$$ as: 
 
 $$G_0=2n_{++}\sum_{i=1}^{I}\sum_{j=1}^{J}\pi_{ij}log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)$$ 
 
@@ -64,7 +64,7 @@ $$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{i
 
 $$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) -log \left(\frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)$$ 
 
-Recall that the log-sum inequality states that for any sets of non-negative numbers: $$(x_i)_{i=1}^{n},(y_i)_{i=1}^{n}$$ with $$x=\sum_{i=1}^{n}, y=\sum_{i=1}^{n}$$ the following inequality holds:
+Recall that the log-sum inequality states that for any sets of non-negative numbers: $$(x_i)_{i=1}^{n},(y_i)_{i=1}^{n}$$ with $$x=\sum_{i=1}^{n} x_i, y=\sum_{i=1}^{n} y_i$$ the following inequality holds:
 
 $$\sum_{i=1}^{n}x_i log \left(\frac{x_i}{y_i} \right) \geq x \cdot log \left(\frac{x}{y} \right)$$
 
@@ -75,7 +75,7 @@ $$\sum_{j=1}^{J}\pi_{ij}\log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) \g
 
 By plugging the RHS in the inequality above in the expression $$0.5n_{++}^{-1}(G_0-G_1)$$ we obtain: 
 
-$$\frac{1}{2n_++}\left( G_0-G_1 \right) \geq \sum_{i=1}^{2} \left( \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) - \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)=0$$ 
+$$\frac{1}{2n_{++}}\left( G_0-G_1 \right) \geq \sum_{i=1}^{2} \left( \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) - \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)=0$$ 
 
 It can now be seen that: $$G_0 \geq G_1$$. Due to the condition of equality in the log-sum inequality, $$G_0=G_1$$ when the first two rows of $$M_0$$ are linearly dependent. 
 
