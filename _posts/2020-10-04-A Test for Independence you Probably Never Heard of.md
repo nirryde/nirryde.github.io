@@ -88,11 +88,9 @@ As far as I know, the $$\chi^2$$-test is not superior to the $$G$$-test in any t
 
 References
 ----------
-Alan Agresti, Categorical Data Analysis, Third Edition
-
-Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Masters Thesis
-
-John H. McDonald, Handbook of Biological Statistics
+Alan Agresti, Categorical Data Analysis, Third Edition  
+Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Masters Thesis  
+John H. McDonald, Handbook of Biological Statistics  
 
 
 
