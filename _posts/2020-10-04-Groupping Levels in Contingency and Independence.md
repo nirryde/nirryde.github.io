@@ -7,27 +7,27 @@ date: 2020-10-04
 A Lack of Choice
 ----------------
 
-A couple of years ago I took a course on analysis of contingency tables. To be honest, I did not want to take this course except that I had no choice as I wanted to take some course and not many courses were offered at that semester. In case you do not know, contingency tables are two-way tables used for describing the joint distribution of two discrete variables. Suppose we collected data on two discrete variables $$X,Y$$ each having $$I,J$$ levels, respectively, then there are $$I\cdot J$$ possible outcomes. A contingency table for $$X,Y$$ has $$I$$ rows and $$J$$ columns and it describes the observed counts of all $$I\cdot J$$ possible outcomes. The $$(i,j)$$ entry of the contingency table is denoted by $$n_{ij}$$. 
-Let $$n_{++}$$ be the total sample size, then: $$n_{++}=\sum_{i=1}^{I}\sum_{j=1}^{J} n_{ij}$$. Another way of presenting contingency tables is by frequencies. In this case, the $$(i,j)$$ entry of the table is the sample frequency $$n_{ij}/n_{++}$$. If one chooses to report the table in the frequency form, one should also report the sample. 	. 
-Contingency tables are not a sexy topic in statistics as much of the theory in the matter was developed when computers where not widespread. As a result, many methods for analyzing contingency tables were developed so that they could be used with a pen, a paper, and a suitable distribution table (such as the table of the standard normal distribution many students these are familiar with[^1]). As I expected, the course was not very interesting although there were a couple of interesting gems one of them is the subject of this post.
+A couple of years ago I took a course on analysis of contingency tables. To be honest, I did not want to take this course yet I had no choice as I wanted to take some course and not many courses were offered on that semester. In case you do not know, contingency tables are two-way tables used for describing the joint distribution of two discrete variables. Suppose we collected data on two discrete variables $$X,Y$$ each having $$I,J$$ levels, respectively, then there are $$I\cdot J$$ possible outcomes. A contingency table for $$X,Y$$ has $$I$$ rows and $$J$$ columns and it describes the observed counts of all $$I\cdot J$$ possible outcomes. The $$(i,j)$$ entry of the contingency table is denoted by $$n_{ij}$$. 
+Let $$n_{++}$$ be the total sample size, then: $$n_{++}=\sum_{i=1}^{I}\sum_{j=1}^{J} n_{ij}$$. Another way of presenting contingency tables is by frequencies. In this case, the $$(i,j)$$ entry of the table is the sample frequency $$n_{ij}/n_{++}$$. If one chooses to report the table in the frequency form, one should also report the sample size. 
+Contingency tables are not a sexy topic in statistics since much of the theory in the matter was developed a long time ago, when computers where not available. As a result, many methods for analyzing contingency tables were developed so that they could be used with a pen, a paper, and a suitable distribution table (such as the table of the standard normal distribution many students these are familiar with[^1]). As I expected, the course was not very interesting although there were a couple of interesting gems one of them is the subject of this post.
 
 Testing for Independence with Pen & Paper
 -----------------------------------------
 
 When our variables of interest $$X,Y$$ are both response variables, possibly the question of most interest is whether or not $$X,Y$$ are dependent. Let $$n_{i+}=\sum_{j=1}^{J}n_{ij}$$, $$n_{+j}=\sum_{i=1}^{I}n_{ij}$$ and $$\hat{\mu}_{ij}=\frac{n_{i+}\cdot n_{+j}}{n_{++}} $$, then the log of the likelihood ratio statistic (which we will call the $$G$$ statistic) for testing the independence of $$X,Y$$ is:
 
-$$G=2\sum_{i=1}^{I} \sum_{j=1}^{J}n_{ij}log \left( \frac{n_{ij}}{\hat{\mu}_{ij}=\} \right)$$
+$$G=2 \sum_{i=1}^{I} \sum_{j=1}^{J} n_{ij} log \left( \frac{n_{ij}}{\hat{\mu}_{ij}} \right)$$
 
-Introductory statistics courses in all levels will usually present the well-known chi-square test for independence and not mention the $$G$$ statistic. The chi-square statistic is obtained from the second-order Taylor approximation of the log term about 1 and is given by:
+Introductory statistics courses given at any faculty will usually present the well-known chi-square test for independence and not mention the $$G$$ statistic. The chi-square statistic is obtained from the second-order Taylor approximation of the log term about 1 and is given by:
 
 $$\chi^2= \sum_{i=1}^{I}\sum_{j=1}^{J} \frac{\left(n_{ij}-n_{i+}\cdot n_{+j} \right)^2}{ n_{i+}n_{+j}}$$
 
 Under the null hypothesis of independence, both $$chi^2$$ and $$G$$ approximately follow a $$\chi^2_{(I-1)(J-1)}$$ distribution and in practice both yield similar results. So why is the $$\chi^2$$ test, which is obtained as an approximation, so popular? Calculation of $$G$$ requires evaluating logarithms which is hard unless you have a calculator of some sort. Today this may seem trivial however in the year ~1900 this was not trivial at all, and it was desired that test statistics could be calculated by pen & paper. 
 
-Grouping Levels in Contingency Tables
---------------------------------------
+A Property of the G-Test: Table Decomposition
+---------------------------------------------
 
-For me, the $$G$$ test was one of the interesting topics in the contingency table course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. 
+For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. Another way to view the theorem is that the G-test allows addition of 
 Let $$M_0$$ denote a contingency table of dimension $$I \times J$$. Now, let $$M_1$$ be the $$(I-1) \times J$$ contingency table obtained by merging the first two rows of $$M_0$$. In other words, the first row in $$M_1$$ is the sum of the first two rows in $$M_0$$. The remaining of the $$I-2$$ rows in $$M_1$$ are equal to the last $$I-2$$ rows in $$M_0$$. We denote the $$G$$ statistic of $$M_k$$ with $$G_k$$. 
 
 **Theorem:** Using the definitions above: $$G_0 \geq G_1$$. \
@@ -84,6 +84,7 @@ References
 ----------
 Alan Agresti, Categorical Data Analysis, Third Edition
 Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Masters Thesis
+John H. McDonald, Handbook of Biological Statistics
 
 [^1]: I have an opinion on the matter but that is a subject for another post.
 [^2]: See Agresties' book and [“Partition of the Chi-Squared Statistic in a Contingency Table”, Jo Ann Colas](https://ruor.uottawa.ca/bitstream/10393/30352/1/Colas_Jo_Ann_2014_thesis.pdf)
