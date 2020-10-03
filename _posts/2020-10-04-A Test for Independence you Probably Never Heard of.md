@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Groupping Levels in Contingency and Independence"
+title: "A Test for Independence you Probably Never Heard of"
 date: 2020-10-04
 ---
 
