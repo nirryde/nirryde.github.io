@@ -30,7 +30,7 @@ A Property of the G-Test: Table Decomposition
 For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. Another way to view the theorem is that the G-statistic is additive which allows conduction of an experiment compounded from sub-experiments were the sum of G-statistics of all sub-experiments equals to the G-statistic of the grand experiment. It should be noted that this property does not hold for the $$\chi^2$$ statistic. \ 
 Let $$M_0$$ denote a contingency table of dimension $$I \times J$$. Now, let $$M_1$$ be the $$(I-1) \times J$$ contingency table obtained by merging the first two rows of $$M_0$$. In other words, the first row in $$M_1$$ is the sum of the first two rows in $$M_0$$. The remaining of the $$I-2$$ rows in $$M_1$$ are equal to the last $$I-2$$ rows in $$M_0$$. We denote $$G_k$$ as the $$G$$ statistic of $$M_k$$. 
 
-**Theorem:** Using the definitions above: $$G_0 \geq G_1$$. \
+**Theorem:** Using the definitions above: $$G_0 \geq G_1$$ and $$G_0=G_1$$ whenever the first two rows of $$M_0$$ are linearly dependent. \
 **Proof:** We shall prove the theorem in two ways. The first proof uses the properties of decomposition of contingency tables. The second proof is based on the relation of the $$G$$ statistic and information theory.
 The rules for decomposing a contingency table into independent sub-tables are[^2]:
 
