@@ -46,7 +46,7 @@ The first two marginal row counts in $$M_0$$ appear only in $$M_2$$. The rest of
 Finally, $$M_0$$ has $$(I-1)(J-1)$$ degrees of freedom. $$M_1$$ has $$(I-2)(J-1)$$ degrees of freedom and $$M_2$$ has $$2(J-1)$$ degrees of freedom. It follows that the sum of degrees of freedom of $$M_1,M_2$$ is equal to the degrees of freedom of $$M_0$$. 
 Since the decomposition of $$M_0$$ into $$M_1,M_2$$ satisfies all of the three decomposition rules, it follows that $$G_0=G_1+G_2$$. The result now follows from the fact that $$G_k \geq 0$$ hence $$G_0 \geq G_1$$. 
 
-For the algebraic proof, let $$p_{ij}=n_{ij}/n_{++}$$. Notice we can write $$G_0$$ as: 
+For the algebraic proof, let $$\pi_{ij}=n_{ij}/n_{++}$$. Notice we can write $$G_0$$ as: 
 
 $$G_0=2n_{++}\sum_{i=1}^{I}\sum_{j=1}^{J}\pi_{ij}log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)$$ 
 
