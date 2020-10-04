@@ -75,7 +75,7 @@ $$\sum_{j=1}^{J}\pi_{ij}\log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi_{2j}} \right) \
 
 By plugging the RHS in the inequality above in the expression $$0.5n_{++}^{-1}(G_0-G_1)$$ we obtain: 
 
-$$\frac{1}{2n_{++}}\left( G_0-G_1 \right) \geq \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right) - \sum_{i=1}^{2} \left( \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \geq 0$$ 
+$$\frac{1}{2n_++}\left( G_0-G_1 \right) \geq \sum_{i=1}^{2} \left( \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) -  \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)=0$$  
 
 It can now be seen that: $$G_0 \geq G_1$$. Due to the condition of equality in the log-sum inequality, $$G_0=G_1$$ when the first two rows of $$M_0$$ are linearly dependent. 
 
