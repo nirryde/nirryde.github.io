@@ -54,7 +54,7 @@ By the definition of $$M_1$$ we can write:
 
 $$G_1=2\sum_{i=3}^{I}\sum_{j=1}^{J}n_{ij}log \left( \frac{n_{ij}}{\hat{\mu}_{ij}} \right)+2\sum_{j=1}^{J}\left(n_{1j}+n_{2j}\right)log \left(\frac{ n_{1j}+n_{2j}}{\hat{\mu}_{1j}+\hat{\mu}_{2j}}\right) $$ 
 
-$$=2n_{++}\sum_{i=3}^{I}\sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)+2n_{++}\sum_{j=1}^{J}\left(\pi_{1j}+\pi_{2j}\right) log \left(\frac{\pi_{1j}+\pi_{2j}}{\left( \pi_{1+}\pi_{2+} \right) \pi_{+j}} \right)$$ 
+$$=2n_{++}\sum_{i=3}^{I}\sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{ij}}{\pi_{i+}\pi_{+j}} \right)+2n_{++}\sum_{j=1}^{J}\left(\pi_{1j}+\pi_{2j}\right) log \left(\frac{\pi_{1j}+\pi_{2j}}{\left( \pi_{1+} + \pi_{2+} \right) \pi_{+j}} \right)$$ 
 
 Using the expressions above for $$G_0, G_1$$, we can write: 
 
