@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Test for Independence you Probably Never Heard of"
+title: "A Market Failure in Statistical Tests"
 date: 2020-10-04
 ---
 
