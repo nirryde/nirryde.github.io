@@ -62,7 +62,7 @@ $$\frac{1}{2n_{++}}\left( G_0-G_1 \right)=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \
 
 $$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{i+}} \right) -log \left(\frac{\pi_{1j}+\pi_{2j}}{\pi_{1+}+\pi_{2+}} \right) \right)$$ 
 
-$$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) -log \left(\frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)$$ 
+$$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi_{2j}} \right) -log \left(\frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)$$ 
 
 Recall that the log-sum inequality states that for any sets of non-negative numbers: $$(x_i)_{i=1}^{n},(y_i)_{i=1}^{n}$$ with $$x=\sum_{i=1}^{n} x_i, y=\sum_{i=1}^{n} y_i$$ the following inequality holds[^3]:
 
@@ -71,11 +71,11 @@ $$\sum_{i=1}^{n}x_i log \left(\frac{x_i}{y_i} \right) \geq x \cdot log \left(\fr
 With equality if and only if $$x_i /y_i$$ are equal for all $$i$$. In our case, this would imply that the first two rows of $$M_0$$ are linearly dependent. 
 Applying the log-sum inequality to the last expression for $$0.5n_{++}^{-1}(G_0-G_1)$$ yields: 
 
-$$\sum_{j=1}^{J}\pi_{ij}\log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) \geq \pi_{i+}log \left( \frac{\pi_i+}{\pi_{1+}+ \pi_{2+}} \right)$$ 
+$$\sum_{j=1}^{J}\pi_{ij}\log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi_{2j}} \right) \geq \pi_{i+}log \left( \frac{\pi_i+}{\pi_{1+}+ \pi_{2+}} \right)$$ 
 
 By plugging the RHS in the inequality above in the expression $$0.5n_{++}^{-1}(G_0-G_1)$$ we obtain: 
 
-$$\frac{1}{2n_{++}}\left( G_0-G_1 \right) \geq \sum_{i=1}^{2} \left( \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) - \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)=0$$ 
+$$\frac{1}{2n_{++}}\left( G_0-G_1 \right) \geq \sum_{j=1}^{J}\pi_{ij} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right) - \sum_{i=1}^{2} \left( \pi_{i+} log \left( \frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \geq 0$$ 
 
 It can now be seen that: $$G_0 \geq G_1$$. Due to the condition of equality in the log-sum inequality, $$G_0=G_1$$ when the first two rows of $$M_0$$ are linearly dependent. 
 
