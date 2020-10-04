@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Market Failure in Statistical Tests"
+title: "A Market Failure in Statistical Tests - The G Test"
 date: 2020-10-04
 ---
 
