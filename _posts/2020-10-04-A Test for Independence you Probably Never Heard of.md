@@ -9,7 +9,7 @@ A Lack of Choice
 
 A couple of years ago I took a course on analysis of contingency tables. To be honest, I did not want to take this course yet I had no choice as I wanted to take some course and not many courses were offered on that semester. In case you do not know, contingency tables are two-way tables used for describing the joint distribution of two discrete variables. Suppose we collected data on two discrete variables $$X,Y$$ each having $$I,J$$ levels, respectively, then there are $$I\cdot J$$ possible outcomes. A contingency table for $$X,Y$$ has $$I$$ rows and $$J$$ columns and it describes the observed counts of all $$I\cdot J$$ possible outcomes. The $$(i,j)$$ entry of the contingency table is denoted by $$n_{ij}$$. 
 Let $$n_{++}$$ be the total sample size, then: $$n_{++}=\sum_{i=1}^{I}\sum_{j=1}^{J} n_{ij}$$. Another way of presenting contingency tables is by frequencies. In this case, the $$(i,j)$$ entry of the table is the sample frequency $$n_{ij}/n_{++}$$. If one chooses to report the table in the frequency form, one should also report the sample size. 
-Contingency tables are not a sexy topic in statistics since much of the theory in the matter was developed a long time ago, when computers where essentially non existing. As a result, many methods for analyzing contingency tables were developed so that they could be used with a pen, a paper, and a suitable distribution table (such as the table of the standard normal distribution many students these are familiar with[^1]). As I expected, the course was not very interesting although there were a couple of interesting gems one of them is the subject of this post.
+Contingency tables are not a sexy topic in statistics since much of the theory in the matter was developed a long time ago, when computers where essentially non existing. As a result, many methods for analyzing contingency tables were developed so that they could be used with a pen, a paper, and a suitable distribution table (such as the table of the standard normal distribution many students are familiar with[^1]). As I expected, the course was not very interesting although there were a couple of interesting gems one of them is the subject of this post.
 
 Testing for Independence with Pen & Paper
 -----------------------------------------
@@ -18,7 +18,7 @@ When our variables of interest $$X,Y$$ are both response variables, possibly the
 
 $$G = 2 \sum_{i=1}^{I} \sum_{j=1}^{J} n_{ij} log \left( \frac{n_{ij}}{\hat{\mu}_{ij}} \right)$$
 
-Introductory statistics courses given at any faculty will usually present the well-known chi-square test for independence by Pearson and never mention the likelihood ratio etst based on the $$G$$ statistic. In fact, the chi-square test statistic is obtained from the second-order Taylor approximation of the log term about 1 and is given by:
+Introductory statistics courses given at any faculty will usually present the well-known chi-square test for independence by Pearson and never mention the likelihood ratio test based on the $$G$$ statistic. In fact, the chi-square test statistic is obtained from the second-order Taylor approximation of the log term about 1 and is given by:
 
 $$\chi^2= \sum_{i=1}^{I}\sum_{j=1}^{J} \frac{\left(n_{ij}-n_{i+}\cdot n_{+j} \right)^2}{ n_{i+}n_{+j}}$$
 
@@ -27,7 +27,7 @@ Under the null hypothesis of independence, both $$\chi^2$$ and $$G$$ statistics 
 A Property of the G-Test: Table Decomposition
 ---------------------------------------------
 
-For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than of the original table thus the null is more likely. Another way to view the theorem is that the G-statistic is additive which allows conduction of an experiment compounded from sub-experiments were the sum of G-statistics of all sub-experiments equals to the G-statistic of the grand experiment. It should be noted that this property does not hold for the $$\chi^2$$ statistic. \ 
+For me, the $$G$$ test was one of the interesting topics in the CTA course, mainly due to a proof I constructed for a property related to grouping levels in a contingency. The property is that when grouping levels of a variable, the $$G$$ statistic of the new contingency table is smaller than the original table thus the null hypothesis is more likely. Another way to view the theorem is that the G-statistic is additive which allows conduction of an experiment compounded from sub-experiments were the sum of G-statistics of all sub-experiments equals to the G-statistic of the grand experiment. It should be noted that this property does not hold for the $$\chi^2$$ statistic.  
 Let $$M_0$$ denote a contingency table of dimension $$I \times J$$. Now, let $$M_1$$ be the $$(I-1) \times J$$ contingency table obtained by merging the first two rows of $$M_0$$. In other words, the first row in $$M_1$$ is the sum of the first two rows in $$M_0$$. The remaining of the $$I-2$$ rows in $$M_1$$ are equal to the last $$I-2$$ rows in $$M_0$$. We denote $$G_k$$ as the $$G$$ statistic of $$M_k$$. 
 
 **Theorem:** Using the definitions above: $$G_0 \geq G_1$$ and $$G_0=G_1$$ whenever the first two rows of $$M_0$$ are linearly dependent. \
@@ -82,7 +82,7 @@ It can now be seen that: $$G_0 \geq G_1$$. Due to the condition of equality in t
 Final Words
 -----------
 
-My proof for the decomposition theorem in this post was influenced by the notation of information theory. At a first glance, the $$G$$-statistic reminded of the Kullback-Leibler deviance and indeed the $$G$$-statistic is proportional the the KL divergence between the obsereved distribution and the null distribution.
+My proof for the decomposition theorem in this post was influenced by the notation of information theory. At a first glance, the $$G$$-statistic reminded me of the Kullback-Leibler deviance and indeed the $$G$$-statistic is proportional the the KL divergence between the obsereved distribution and the null distribution.
 
 As far as I know, the $$\chi^2$$-test is not superior to the $$G$$-test in any theoretical aspect and the decomposition property makes the $$G$$-test more favourable. It is also interesting to note that development of the $$\chi^2$$-statistic requires much more knowledge in math compared to the $$G$$-statistics since developing the $$\chi^2$$-statistic requires all the knowledge for developing the $$G$$ and knowledge on Tailor approximations. On the other hand, I find that for the untrained eye, the $$\chi^2$$-statistic has a more intuitive form compared to the $$G$$-statistic.  
 A possible solution for the lack of popularity of the $$G$$-test is that the statistical reviewers of journals require changing to a $$G$$-test whenever a paper is submitted with a $$\chi^2$$-test. On the other hand, since both methods yield similar results, it is likely that nobody wants to deal with the hassle of explaining why changing the statistical test is so acute. 
@@ -94,9 +94,7 @@ Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Mas
 John H. McDonald, Handbook of Biological Statistics  
 
 
-<p style="font-size:1.1em">
 [^1]: I have an opinion on the matter but that is a subject for another post.
 [^2]: See Agresties' book and [“Partition of the Chi-Squared Statistic in a Contingency Table”, Jo Ann Colas](https://ruor.uottawa.ca/bitstream/10393/30352/1/Colas_Jo_Ann_2014_thesis.pdf)
 [^3]: The proof for this inequality is based on the convexity of $$xlog(x)$$ and Jensen’s inequality.
-</p>
 
