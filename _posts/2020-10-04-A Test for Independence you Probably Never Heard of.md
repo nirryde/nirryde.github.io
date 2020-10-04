@@ -9,7 +9,7 @@ A Lack of Choice
 
 A couple of years ago I took a course on analysis of contingency tables. To be honest, I did not want to take this course yet I had no choice as I wanted to take some course and not many courses were offered on that semester. In case you do not know, contingency tables are two-way tables used for describing the joint distribution of two discrete variables. Suppose we collected data on two discrete variables $$X,Y$$ each having $$I,J$$ levels, respectively, then there are $$I\cdot J$$ possible outcomes. A contingency table for $$X,Y$$ has $$I$$ rows and $$J$$ columns and it describes the observed counts of all $$I\cdot J$$ possible outcomes. The $$(i,j)$$ entry of the contingency table is denoted by $$n_{ij}$$. 
 Let $$n_{++}$$ be the total sample size, then: $$n_{++}=\sum_{i=1}^{I}\sum_{j=1}^{J} n_{ij}$$. Another way of presenting contingency tables is by frequencies. In this case, the $$(i,j)$$ entry of the table is the sample frequency $$n_{ij}/n_{++}$$. If one chooses to report the table in the frequency form, one should also report the sample size. 
-Contingency tables are not a sexy topic in statistics since much of the theory in the matter was developed a long time ago, when computers where not available. As a result, many methods for analyzing contingency tables were developed so that they could be used with a pen, a paper, and a suitable distribution table (such as the table of the standard normal distribution many students these are familiar with[^1]). As I expected, the course was not very interesting although there were a couple of interesting gems one of them is the subject of this post.
+Contingency tables are not a sexy topic in statistics since much of the theory in the matter was developed a long time ago, when computers where essentially non existing. As a result, many methods for analyzing contingency tables were developed so that they could be used with a pen, a paper, and a suitable distribution table (such as the table of the standard normal distribution many students these are familiar with[^1]). As I expected, the course was not very interesting although there were a couple of interesting gems one of them is the subject of this post.
 
 Testing for Independence with Pen & Paper
 -----------------------------------------
@@ -64,7 +64,7 @@ $$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{i
 
 $$=\sum_{i=1}^{2}\sum_{j=1}^{J}\pi_{ij} \left( log \left( \frac{\pi_{ij}}{\pi_{1j}+\pi{2j}} \right) -log \left(\frac{\pi_{i+}}{\pi_{1+}+\pi_{2+}} \right) \right)$$ 
 
-Recall that the log-sum inequality states that for any sets of non-negative numbers: $$(x_i)_{i=1}^{n},(y_i)_{i=1}^{n}$$ with $$x=\sum_{i=1}^{n} x_i, y=\sum_{i=1}^{n} y_i$$ the following inequality holds:
+Recall that the log-sum inequality states that for any sets of non-negative numbers: $$(x_i)_{i=1}^{n},(y_i)_{i=1}^{n}$$ with $$x=\sum_{i=1}^{n} x_i, y=\sum_{i=1}^{n} y_i$$ the following inequality holds[^3]:
 
 $$\sum_{i=1}^{n}x_i log \left(\frac{x_i}{y_i} \right) \geq x \cdot log \left(\frac{x}{y} \right)$$
 
@@ -93,8 +93,9 @@ Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Mas
 John H. McDonald, Handbook of Biological Statistics  
 
 
-
+<p style="font-size:1.1em">
 [^1]: I have an opinion on the matter but that is a subject for another post.
 [^2]: See Agresties' book and [“Partition of the Chi-Squared Statistic in a Contingency Table”, Jo Ann Colas](https://ruor.uottawa.ca/bitstream/10393/30352/1/Colas_Jo_Ann_2014_thesis.pdf)
-
+[^3]: The proof for this inequality is based on the convexity of $$xlog(x)$$ and Jensen’s inequality.
+</p>
 
