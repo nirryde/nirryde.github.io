@@ -53,14 +53,6 @@ p img {
     margin: 0 auto;
 }
 
-.footnote {
-    font-size: 1.2em;
-}
-
-.textEq {
-    display: inline;
-}
-
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
