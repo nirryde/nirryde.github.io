@@ -94,7 +94,7 @@ Jo Ann Colas, Partition of the Chi-Squared Statistic in a Contingency Table, Mas
 John H. McDonald, Handbook of Biological Statistics  
 
 
-[1]: I have an opinion on the matter but that is a subject for another post.
-[2]: See Agresties' book and [“Partition of the Chi-Squared Statistic in a Contingency Table”, Jo Ann Colas](https://ruor.uottawa.ca/bitstream/10393/30352/1/Colas_Jo_Ann_2014_thesis.pdf)
-[3]: The proof for this inequality is based on the convexity of $$xlog(x)$$ and Jensen’s inequality.
+[^1]: I have an opinion on the matter but that is a subject for another post.
+[^2]: See Agresties' book and [“Partition of the Chi-Squared Statistic in a Contingency Table”, Jo Ann Colas](https://ruor.uottawa.ca/bitstream/10393/30352/1/Colas_Jo_Ann_2014_thesis.pdf)
+[^3]: The proof for this inequality is based on the convexity of $$xlog(x)$$ and Jensen’s inequality.
 
