@@ -53,6 +53,10 @@ p img {
     margin: 0 auto;
 }
 
+file.footnote {
+    font-size: 1.2em;
+}
+
 .textEq {
     display: inline;
 }
