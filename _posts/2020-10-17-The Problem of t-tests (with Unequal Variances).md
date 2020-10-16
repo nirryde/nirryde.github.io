@@ -30,7 +30,7 @@ Among all of the frequentist solutions, Welch’s solution is the most widely us
 
 $$t = \frac{\bar{x} - \bar{y}}{\sqrt{ \frac{s_x^2}{n} + \frac{s_y^2}{m} } }$$
 
-If you are familiar with sufficient statistics, notice Welch’s t-statistic is based on the sufficient statistics $$\bar{x} - \bar{y}, s_x^2, s_y^2$$. Scheffe’s solution for example is not based on sufficient statistics which theoretically yields a sub-optimal test in terms of power. Welch approximated the distribution of his statistic with the t-distribution with a special degree of freedom which can simply be written as:
+If you are familiar with sufficient statistics, you will have noticed Welch’s t-statistic is based on the sufficient statistics $$\bar{x} - \bar{y}, s_x^2, s_y^2$$. Scheffe’s solution for example is not based on sufficient statistics and thus theoretically yields a sub-optimal test in terms of power. Welch approximated the distribution of his statistic with the t-distribution with a special degree of freedom which can simply be written as:
 
 $$df = \frac{1}{\frac{c^2}{n-1}+\frac{1-c^2}{m-1}}$$
 
