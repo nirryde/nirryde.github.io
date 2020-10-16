@@ -40,28 +40,40 @@ Welch’s solution is simple and utilizes sufficient statistics which explain th
 Simulation Time
 ----------------
 
-Now comes the fun part of demonstrations with simulations. Of course, simulations are by no means a formal proof, however, they can serve as a useful tool for intuitive understanding. The R-code below simulates $$10^5$$ runs of the following experiment: first we draw 100 random numbers from the $$N(1,4)$$ distribution and 120 random numbers from the $$N(1,1)$$ distribution. Then we perform a Welch t-test to test if $$X,Y$$ have the same mean and we record whether the test rejected the null hypothesis of equal means. If Welch’s t-test is precise, the proportion of (false) rejections should be **very** close to 5%. 
+Now comes the fun part of demonstrations with simulations. Of course, simulations are by no means a formal proof, however, they can serve as a useful tool for intuitive understanding. The R-code below simulates $10^5$ runs of the following experiment: first we draw 100 random numbers from the $$N(1,9)$$ distribution and 120 random numbers from the $$N(1,1)$$ distribution. Then we perform a Welch t-test to test if $$X,Y$$ have the same mean and we record whether the test rejected the null hypothesis of equal means. We also record the t-statistic from the t-test for comparing normal means assuming equal variances.  
+If Welch’s t-test is precise, the proportion of (false) rejections should be **very** close to 5%.
 
 ```
 set.seed(3071)
 
 reps <- 10^5
-alpha <- 0.05 
-test.res <- logical(reps)
+alpha <- 0.05 # significance level 
+test.res <- logical(reps) # records which repetitions were rejected
+test.stat <- numeric(reps) # records the t-statistic of each repetition assuming equal variances
 
 for( rep in 1:reps )
 {
-      x <- rnorm(100, mean=1, sd=3)
-      y <- rnorm(120, mean=1, sd=1)
+  x <- rnorm(100, mean=1, sd=3)
+  y <- rnorm(120, mean=1, sd=1)
   
-  test.res[rep] <- t.test(x, y, conf.level=1-alpha, var.equal=F)$p.value < alpha
+  test.res[rep] <- t.test(x, y, conf.level=1-alpha, var.equal=F)$p.value < alpha 
+  test.stat[rep] <- t.test(x, y, conf.level=1-alpha, var.equal=T)$statistic
 }
 
 sum(test.res==T)/reps # the proportion of flase rejections is 0.04923 < 0.05
 
-``` 
+library(ggplot2)
+d <- data.frame(test.stat, t=rt(reps,df=120+100-2))
+ggplot(d) + geom_density(aes(t, color="sim t")) + geom_density(aes(test.stat, color="test t"))
+```  
 
-We can see that in our simulation, the proportion of false nulls is 4.923% which is not **very** close to the desired 5%, in other words, the Welch test is too conservative.
+We can see that in our simulation, the proportion of false nulls is 4.923% which is not **very** close to the desired 5% and is actually smaller. In other words, the Welch test is too conservative. The plot below compares the empirical distribution of the t-statistics assuming the variances of $X,Y$ are equal to the empirical distribution of 10^5 random samples from a $t_{df=218}$ distribution. Notice how the t-statistic's distribution is more spread-out compared to the distribution of the simulated t random variables. From this plot we learn that if we mistakenly use the t-test that assumes equal variances when the variances are in fact different, we are prone to over-inflating the type 1 error rate. In other words, the resulting significance will be higher than the desired $\alpha$.
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/Ttest/Rplot01.png" />
+</p>
+
+When it is unclear whether the variances are equal, it is often suggested to first use Levene's test or Bartlett's test for testing the equality of the variances and then choose the appropriate t-test. Some (Delacre et al.) suggest that the Welch test should be used by default instead of first testing for equal variances. In fact, the default setting for the variance assumption in the t.test function in R is var.equal=FALSE.
 
 Summing Up
 -----------
@@ -82,4 +94,5 @@ Seock-Ho Kim and Allan S. Cohen, On the Behrens-Fisher problem: A Review, Journa
 
 Yurri Linnik, Statistical Problems with Nuisance Parameters – translated from Russian (1966)  
 
+Delacre, M., Lakens, D., & Leys, C. (2017, February 17). Why Psychologists Should by Default Use Welch's t-test Instead of Student's t-test (in press for the International Review of Social Psychology). https://doi.org/10.31219/osf.io/sbp6k
 
