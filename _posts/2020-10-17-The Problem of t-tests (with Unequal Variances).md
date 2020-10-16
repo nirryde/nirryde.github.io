@@ -17,7 +17,7 @@ To understand the Behrens-Fisher problem we must first understand how hypothesis
 For simplicity, assume we want to test the hypothesis $H_0: \theta_1=0$ and that $\theta_2,...,\theta_p$ are unknown. To do this, we construct a statistic[^1] $S(x_1,…,x_n)$, whose distribution will depend on the parameter we are testing and perhaps on the unknown parameters: $\theta_2,...,\theta_p$. Now let $$\Omega$$ denote the sample space of the statistic $S$, then to conduct the test at a level of significance $\alpha$, we need to find a subset $M_\alpha \subseteq \Omega$ which satisfies two conditions:
 <ol>
 <li> If the null hypothesis is true, then the probability of the event $\{S \in \ M_\alpha \}$ does not depend on the unknown parameters: $\theta_2,...,\theta_p$. This condition insures the practicality of the test.</li>
-<li> The probability of the event $\{S \in \ M_\alpha \}$ is equal to $1-\alpha$. This condition insures us the test is significant at the $100(1-\allha)%$ level.</li>
+<li> The probability of the event $\{S \in \ M_\alpha \}$ is equal to $1-\alpha$. This condition insures us the test is significant at the $1-\alpha$ level.</li>
 </ol>
 The Behrens-Fisher problem is to find a statistic and a partition of the sample space of the statistic under the null hypothesis which will satisfy the two required conditions above (recall this is for the problem of testing the equality of normal means with no knowledge on the variances). Notice that if the first condition is not met, we may be tempted to estimate the unknown parameters. However, by doing so, we risk satisfying the second condition.
 
