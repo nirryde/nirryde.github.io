@@ -7,9 +7,12 @@ date: 2020-10-17
 The Behrens-Fisher Problem
 -------
 
-If you have taken a course on statistics which covers hypothesis testing, you were probably encountered with the following scenario: We would like to test the equality of two normal means $$\mu_x, \mu_y$$ based on an independent sample $$x_1,…,x_n; y_1,…,y_m$$ from the normal distributions $$X \sim N(\mu_x,\sigma_x^2), Y \sim N(\mu_y, \sigma_y^2)$$. 
-When the variances, $$\sigma_x^2, \sigma_y^2$$, and their ratio $$\sigma_x^2 \ \sigma_y^2$$ are unknown we are faced with an extremely difficult problem! This is known as the Behrens-Fisher problem which was presented by German chemist and statistician Walter Behrens and was formally stated by Ronald Fisher.
+If you have taken a course on statistics which covers hypothesis testing, you were probably encountered with the following scenario: We would like to test the equality of two normal means $$\mu_x, \mu_y$$ based on an independent sample $$x_1,…,x_n; y_1,…,y_m$$ from the respective normal distributions $$X \sim N(\mu_x,\sigma_x^2), Y \sim N(\mu_y, \sigma_y^2)$$. 
+When the variances, $$\sigma_x^2, \sigma_y^2$$, and their ratio $$\sigma_x^2 / \sigma_y^2$$ are unknown we are faced with an extremely difficult problem! This is known as the Behrens-Fisher problem which was presented by German chemist and statistician Walter Behrens and was formally stated by Ronald Fisher.
+
 What is the Problem?
+---------------------
+
 To understand the Behrens-Fisher problem we must first understand how hypothesis testing works within the parametric-frequentist paradigm. Recall that under this paradigm, we assume our data arises from some parametric family of probability distributions, $$\mathscr{F}_\Theta$$ where $$\Theta$$ denotes the parameter space - the set of all possible values of the parameters $$\theta$$. Moreover, we assume the parameters, $$\theta$$, of the distribution from which our data was generated are (at least partially) unknown and are fixed constants of nature (just like we treat the gravitational constant for example). When conducting a hypothesis test, our null and alternative hypotheses partition the parameter space into two subsets, one which corresponds to the null hypothesis, $$\Theta_0 \subseteq \Theta$$, and one which corresponds to the alternative hypothesis, $$\Theta_1= \Theta_0^c$$. To test the null hypothesis[^1] $$H_0: \theta \in \Theta_0$$ we construct some statistic[^2], $$S(x_1,…,x_n)$$ whose distribution will depend on the unknown parameters. Now let $$\Omega$$ denote the sample space of the statistic $$S$$ then to conduct the test at a level of significance \alpha, we need to find a subset $$M_\alpha \subseteq \Omega$$ which satisfies two conditions:
 <ol>
 <li> If the null hypothesis is true, then the probability of the event ${S \in \ \Omega}$ does not depend on $\theta$. </li>
@@ -67,7 +70,7 @@ Although Welch’s solution seems to suffice in practice, it would be interestin
 I should also mention that the Behrens-Fisher problem extends to the multivariate case. In this case, we compare vectors of means and we assume no knowledge on the covariance matrices of the normal distributions.
 I hope this post was useful and that you have learned and understood the nature of the Behrens-Fisher problem.
 
-[^1]: For simplicity assume we are dealing with hypothesis of the form $$\theta=theta_0$$.
+[^1]: For simplicity assume we are dealing with hypothesis of the form $$\theta=\theta_0$$.
 [^2]: A statistic is any function of the sample. For example, the sample itself $$(x_1,…,x_n)$$ as a vector is a statistic, another familiar statistic is the sample mean. An important notion is the sufficient statistic which is a statistic which contains all of the information on the unknown parameters as the sample itself. In other words, the sufficient statistic can be thought of as a “good” summary of the data in regard to the unknown parameter.  
 
 References
