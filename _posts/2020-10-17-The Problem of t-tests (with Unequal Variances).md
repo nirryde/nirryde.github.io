@@ -11,10 +11,10 @@ If you have taken a course on statistics which covers hypothesis testing, you we
 When the variances, $$\sigma_x^2, \sigma_y^2$$, and their ratio $$\sigma_x^2 \ \sigma_y^2$$ are unknown we are faced with an extremely difficult problem! This is known as the Behrens-Fisher problem which was presented by German chemist and statistician Walter Behrens and was formally stated by Ronald Fisher.
 What is the Problem?
 To understand the Behrens-Fisher problem we must first understand how hypothesis testing works within the parametric-frequentist paradigm. Recall that under this paradigm, we assume our data arises from some parametric family of probability distributions, $$\mathscr{F}_\Theta$$ where $$\Theta$$ denotes the parameter space - the set of all possible values of the parameters $$\theta$$. Moreover, we assume the parameters, $$\theta$$, of the distribution from which our data was generated are (at least partially) unknown and are fixed constants of nature (just like we treat the gravitational constant for example). When conducting a hypothesis test, our null and alternative hypotheses partition the parameter space into two subsets, one which corresponds to the null hypothesis, $$\Theta_0 \subseteq \Theta$$, and one which corresponds to the alternative hypothesis, $$\Theta_1= \Theta_0^c$$. To test the null hypothesis[^1] $$H_0: \theta \in \Theta_0$$ we construct some statistic[^2], $$S(x_1,…,x_n)$$ whose distribution will depend on the unknown parameters. Now let $$\Omega$$ denote the sample space of the statistic $$S$$ then to conduct the test at a level of significance \alpha, we need to find a subset $$M_\alpha \subseteq \Omega$$ which satisfies two conditions:
-<ul>
-<li> If the null hypothesis is true, then the probability of the event $${\S \in \ \Omega}$$ does not depend on $$\theta$$. </li>
-<li> The probability of the event $${\S \in \ \Omega}$$ is equal to $$1-\alpha$$. </li>
-</ul>
+<ol>
+<li> If the null hypothesis is true, then the probability of the event ${S \in \ \Omega}$ does not depend on $\theta$. </li>
+<li> The probability of the event ${S \in \ \Omega}$$ is equal to $$1-\alpha$. </li>
+</ol>
 The Behrens-Fisher problem is to find a statistic and a partition of the sample space of the statistic under the null hypothesis which will satisfy the two required conditions above (recall this is for the problem of testing the equality of normal means with no knowledge on the variances).
 
 Solutions for the Problem
@@ -24,10 +24,10 @@ Different schools of thought suggested solutions to the Behrens-Fisher problem. 
 Yurri Linnik, who was a Soviet mathematician proved several properties regarding frequentist solutions for the Behrens-Fisher problem. Two important properties due to Linnik are that a solution exists if the sample sizes, $$n,m$$, are unequal and that there is no uniformly most powerful solution.  
 Among all of the frequentist solutions, Welch’s solution is the most widely used and taught solution in statistics courses. Many courses present Welch’s solution without stating the Behrens Fisher problem, perhaps since understanding the problem requires some abstract understanding. Welch’s solution is based on the trivial statistic:
 
-$$t = \fraq{\bar{x} - \bar{y}}{\sqrt{ \fraq{s_x^2}{n} + \fraq{s_y^2}{m} } }$$
+$$t = \frac{\bar{x} - \bar{y}}{\sqrt{ \frac{s_x^2}{n} + \frac{s_y^2}{m} } }$$
 
 If you are familiar with sufficient statistics, notice Welch’s t-statistic is based on the sufficient statistics $$\bar{x} - \bar{y}, s_x^2, s_y^2$$. Scheffe’s solution for example is not based on sufficient statistics which theoretically yields a sub-optimal test in terms of power. Welch approximated the distribution of his statistic with the t-distribution with a special degree of freedom which can simply be written as:
-$$df = \fraq{1}{\fraq{c^2}{n-1}+\fraq{1-c^2}{m-1}}$$
+$$df = \frac{1}{\frac{c^2}{n-1}+\frac{1-c^2}{m-1}}$$
 Where $$c$$ is a function of $$s_x, s_y, n, m$$. Welch’s degree of freedom is typically not an integer so in practice the degrees of freedom are rounded down to the closest integer. 
 Welch’s solution is simple and utilizes sufficient statistics which explain the popularity of the method. However, it is still not an exact solution as demonstrated in the next section.
 
@@ -71,8 +71,10 @@ I hope this post was useful and that you have learned and understood the nature 
 References
 -----------
 
-Behrens-Fisher problem. Encyclopedia of Mathematics. https://encyclopediaofmath.org/wiki/Behrens-Fisher_problem
+[Behrens-Fisher problem. Encyclopedia of Mathematics.](https://encyclopediaofmath.org/wiki/Behrens-Fisher_problem)
+
 Seock-Ho Kim and Allan S. Cohen, On the Behrens-Fisher problem: A Review, Journal of Educational and Behavioral Statistics, 1998, Vol. 23, No.4 pp.356-377
+
 Yurri Linnik, Statistical Problems with Nuisance Parameters – translated from Russian (1966)  
 
 
