@@ -34,7 +34,7 @@ If you are familiar with sufficient statistics, you will have noticed Welch’s 
 
 $$df = \frac{1}{\frac{c^2}{n-1}+\frac{1-c^2}{m-1}}$$
 
-Where $$c$$ is a function of $$s_x, s_y, n, m$$. Welch’s degree of freedom is typically not an integer so in practice the degrees of freedom are rounded down to the closest integer. 
+Where $$c$$ is a function of $$s_x, s_y, n, m$$. Welch’s degree of freedom is typically not an integer so in practice the degrees of freedom are rounded down to the closest integer. It is worth mentioning that Welch's degree of freedom is random since $c$ depends on the realized sample data.
 Welch’s solution is simple and utilizes sufficient statistics which explain the popularity of the method. However, it is still not an exact solution as demonstrated in the next section.
 
 Simulation Time
@@ -67,13 +67,32 @@ d <- data.frame(test.stat, t=rt(reps,df=120+100-2))
 ggplot(d) + geom_density(aes(t, color="sim t")) + geom_density(aes(test.stat, color="test t"))
 ```  
 
-We can see that in our simulation, the proportion of false nulls is 4.923% which is not **very** close to the desired 5% and is actually smaller. In other words, the Welch test is too conservative. The plot below compares the empirical distribution of the t-statistics assuming the variances of $X,Y$ are equal to the empirical distribution of 10^5 random samples from a $t_{df=218}$ distribution. Notice how the t-statistic's distribution is more spread-out compared to the distribution of the simulated t random variables. From this plot we learn that if we mistakenly use the t-test that assumes equal variances when the variances are in fact different, we are prone to over-inflating the type 1 error rate. In other words, the resulting significance will be higher than the desired $\alpha$.
+We can see that in our simulation, the proportion of false nulls is 4.923% which is not **very** close to the desired 5% and is actually smaller. In other words, the Welch test is too conservative.  
+The plot below compares the empirical distribution of the t-statistics assuming the variances of $X,Y$ are equal to the empirical distribution of $10^5$ random samples from a $t_{df=218}$ distribution. Notice how the t-statistic's distribution is more spread-out compared to the distribution of the simulated t random variables. From this plot we learn that if we mistakenly use the t-test that assumes equal variances when the variances are in fact different, we are prone to over-inflating the type 1 error rate. In other words, the resulting significance will be higher than the desired $\alpha$.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/nirryde/nirryde.github.io/master/Images/Ttest/Rplot01.png" />
 </p>
 
-When it is unclear whether the variances are equal, it is often suggested to first use Levene's test or Bartlett's test for testing the equality of the variances and then choose the appropriate t-test. Some (Delacre et al.) suggest that the Welch test should be used by default instead of first testing for equal variances. In fact, the default setting for the variance assumption in the t.test function in R is var.equal=FALSE.
+When it is unclear whether the variances are equal, it is often suggested to first use Levene's test or Bartlett's test for testing the equality of the variances and then choose the appropriate t-test. Some (Delacre et al., Graeme) suggest that the Welch test should be used by default instead of first testing for equal variances. In fact, the default setting for the variance assumption in the t.test function in R is var.equal=FALSE. One reason for using Welch's test by deafault is that it achives a similar power as the t-test when the variances are in fact equal. This is demonstrated in the next simulation were $10^5$ repetitions of the following experiment are made: draw 100 random variables from the $N(1,9)$ distribution and 120 random variables from the $N(1.25,9)$ distribution. For each repetition we record the decision from the t-test assuming equal variances and the decision from Welch's test.  
+
+```
+t.test.res <- Welch.test.res <- logical(reps)
+for( rep in 1:reps )
+{
+  x <- rnorm(100, mean=1, sd=3)
+  y <- rnorm(120, mean=1.25, sd=3)
+  
+  t.test.res[rep] <- t.test(x, y, conf.level=1-alpha, var.equal=T)$p.value < alpha 
+  Welch.test.res[rep] <- t.test(x, y, conf.level=1-alpha, var.equal=F)$p.value < alpha
+}
+
+sum(t.test.res)/reps # estimated power of the t test is 9.257%
+sum(Welch.test.res)/reps # estimated power of Welch's test is 9.237%
+
+```
+
+The t-test resulted in an estimated power of 9.257% and Welch's test resulted in an estimated power of 9.237% so both tests are very close in terms of power. The power gap between both tests narrows as the differnce in means increases.  
 
 Summing Up
 -----------
@@ -94,5 +113,7 @@ Seock-Ho Kim and Allan S. Cohen, On the Behrens-Fisher problem: A Review, Journa
 
 Yurri Linnik, Statistical Problems with Nuisance Parameters – translated from Russian (1966)  
 
-Delacre, M., Lakens, D., & Leys, C. (2017, February 17). Why Psychologists Should by Default Use Welch's t-test Instead of Student's t-test (in press for the International Review of Social Psychology). https://doi.org/10.31219/osf.io/sbp6k
+Delacre, M., Lakens, D., & Leys, C. (2017, February 17). Why Psychologists Should by Default Use Welch's t-test Instead of Student's t-test (in press for the International Review of Social Psychology). https://doi.org/10.31219/osf.io/sbp6k  
+
+Graeme D. Ruxton, The unequal variance t-test is an underused alternative to Student's t-test and the Mann–Whitney U test, Behavioral Ecology, Volume 17, Issue 4, July/August 2006, Pages 688–690, https://doi.org/10.1093/beheco/ark016
 
